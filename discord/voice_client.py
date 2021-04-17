@@ -777,7 +777,7 @@ class VoiceClient(VoiceProtocol):
          """
         if not self.recording:
             raise ClientException("Not currently recording audio.")
-        self.paused = {True: False, False: True}[self.paused]
+        self.paused = not self.paused
 
     def continue_recv(self):
         # If data is not received while not recording
